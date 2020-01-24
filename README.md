@@ -1,13 +1,12 @@
 # Fraud Detection - Alibaba 
-This repo is to practise some code implementing from this paper
-Please read through the paper before continue: 
+This repo is to practise some code implementing from this paper. Please read through the paper before continue: 
 https://nesa.zju.edu.cn/download/Online%20E-Commerce%20Fraud%20A%20Large-scale%20Detection%20and%20Analysis.pdf
 
 
 ## Introduction: 
 This repo is only for practising purpose so: 
 - it does not have high credibility
-- performance of code may be (or will) not good, so all feedback and comment are highly welcome 
+- performance of code may be (or will) not good, so all feedback and comment are highly welcomed
 
 
 ## About the paper (quick summary, quoting from paper) 
