@@ -8,8 +8,19 @@ class Bipartite_Graph():
         matrix: M is to store relationship bw U and I: 1 means there is a clicks bw U and I
         matrix: WU is to store the Weight value for each U on each I 
         matrix: WI is to store the Weight value for each I on each U  
-        process when single user click to single item: 
-        M update new click > update WU & WI
+        array like PU & PI: store the product score and item score (probability product / item is fraud)
+        M update new click > update WU & WI  + Update PU + PI 
+        Example: 
+        M is matrix with shape U * I 
+        M = matrix(
+        [[ 1.,  1.,  1.,  0.,  0.],  
+        [ 0.,  0.,  1.,  0.,  0.],
+        [ 1.,  0.,  0.,  0.,  0.],
+        [ 0.,  0.,  0.,  0.,  0.]])
+        PU (label as fraud) = ([1,1,0,0]) 
+        TO-DO-LATER:
+         - import a larger list of product and user (1M)
+         - multiple process: update click and calculate at the same time 
         '''   
         self.M = np.matrix(np.zeros(shape=(len(U), len(I))))
         self.PI = np.matrix(np.zeros(shape=(len(I), 1))) # I*1 matrix
@@ -23,12 +34,6 @@ class Bipartite_Graph():
     def update_initial_PU(self, PU):
         self.PU = np.asmatrix(PU).T
         return
-
-    def get_array_WI(self):
-        return np.asarray(np.where(sum(self.M) ==0, sum(self.M), 1/sum(self.M))) # I*1 matrix 
-
-    def get_array_WU(self):
-        return np.asarray(np.where(sum(self.M.T) ==0, sum(self.M.T), 1/sum(self.M.T))) # U* 1 matrix 
 
     def get_matrix_WI(self):
         return np.asmatrix(np.asarray(np.where(sum(self.M) ==0, sum(self.M), 1/sum(self.M)))*np.asarray(self.M)) # U*I matrix 
@@ -61,8 +66,8 @@ class Bipartite_Graph():
             count += 1 
             self.update_PI()
             self.update_PU()
-            # if count == 66:
-                # import pdb; pdb.set_trace()
+            if count == 1:
+                import pdb; pdb.set_trace()
 
             if (self.PI == temp_PI).all() and (self.PU== temp_PU).all():
                 print('done')
