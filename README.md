@@ -12,6 +12,7 @@ This repo is only for practising purpose so:
 ## About the paper (quick summary, quoting from paper) 
 There are 2 modules in this paper: 
 - GBD module (Graph-Based Detection module): this module using an "user-item bipartite graph and a small set of confirmed dishonest users, GBD assigns each item a fraud score via a propagation algorithm. Then, it determines the fraud items based on their fraud scores."  - page 2 
+
 ![alt text](https://drive.google.com/drive/u/0/folders/19dZBOiaEmwYfjx_i9N1WOOMbc7mYsihJ)
 
 
