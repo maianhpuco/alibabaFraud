@@ -60,8 +60,7 @@ class Bipartite_Graph():
     def iterate_until_convergence(self):
         # import pdb; pdb.set_trace()
         count = 0 
-        # for i in range(1000):
-        while True:
+        for i in range(1000):
             temp_PI = self.PI
             temp_PU = self.PU
             count += 1 
